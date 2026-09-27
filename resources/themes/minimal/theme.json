@@ -1,0 +1,68 @@
+{
+    "name": "Minimal",
+    "slug": "minimal",
+    "version": "1.0.0",
+    "description": "A light and airy theme with big typography and lots of white space. Based on the default theme: only the header, the footer and the hero change.",
+    "author": "MyCMS",
+    "license": "MIT",
+    "parent": "default",
+    "screenshot": "screenshot.svg",
+    "assets": {
+        "css": ["assets/theme.css"],
+        "js": ["assets/theme.js"]
+    },
+    "default_palette": "mono",
+    "palettes": {
+        "mono": {
+            "name": "Monochrome",
+            "colors": { "primary": "#1f2937", "secondary": "#6b7280", "accent": "#2563eb", "button": "#111111", "background": "#ffffff", "section": "#f6f6f4", "card": "#ffffff", "text": "#111111", "textMuted": "#52525b" }
+        },
+        "forest": {
+            "name": "Forest",
+            "colors": { "primary": "#1f5f4a", "secondary": "#6b705c", "accent": "#b5838d", "button": "#1f5f4a", "background": "#fbfaf7", "section": "#f1efe8", "card": "#ffffff", "text": "#1c2421", "textMuted": "#4b5550" }
+        },
+        "ink": {
+            "name": "Ink",
+            "colors": { "primary": "#e0b04a", "secondary": "#a3a3a3", "accent": "#7dd3fc", "button": "#e0b04a", "background": "#111214", "section": "#1a1b1e", "card": "#202125", "text": "#f4f4f5", "textMuted": "#b4b4bb" }
+        }
+    },
+    "options": [
+        {
+            "name": "header_layout",
+            "label": "Header layout",
+            "type": "select",
+            "options": { "centered": "Logo centered, menu below", "inline": "Logo on the left, menu on the right" },
+            "default": "centered"
+        },
+        {
+            "name": "uppercase_menu",
+            "label": "Menu in capital letters",
+            "type": "toggle",
+            "default": true
+        }
+    ],
+    "blocks": {
+        "stats": {
+            "label": "Key figures",
+            "icon": "trending_up",
+            "description": "A few big figures in a row: years of experience, customers, projects…",
+            "fields": [
+                { "name": "title", "label": "Title", "type": "text" },
+                { "name": "intro", "label": "Introduction text", "type": "textarea" },
+                {
+                    "name": "items",
+                    "label": "Figures",
+                    "type": "repeater",
+                    "item_label": "label",
+                    "add_label": "Add a figure",
+                    "max_items": 4,
+                    "fields": [
+                        { "name": "value", "label": "Value (e.g. \"120+\")", "type": "text" },
+                        { "name": "label", "label": "Label", "type": "text" }
+                    ]
+                },
+                { "name": "dark", "label": "Dark background", "type": "toggle", "default": false }
+            ]
+        }
+    }
+}

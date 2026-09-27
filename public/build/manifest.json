@@ -1,0 +1,79 @@
+{
+  "node_modules/@fontsource-variable/literata/files/literata-cyrillic-ext-wght-normal.woff2": {
+    "file": "assets/literata-cyrillic-ext-wght-normal-CGKlZYBf.woff2",
+    "src": "node_modules/@fontsource-variable/literata/files/literata-cyrillic-ext-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/literata/files/literata-cyrillic-wght-normal.woff2": {
+    "file": "assets/literata-cyrillic-wght-normal-DLqwHbi6.woff2",
+    "src": "node_modules/@fontsource-variable/literata/files/literata-cyrillic-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/literata/files/literata-greek-ext-wght-normal.woff2": {
+    "file": "assets/literata-greek-ext-wght-normal-e3e57Shi.woff2",
+    "src": "node_modules/@fontsource-variable/literata/files/literata-greek-ext-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/literata/files/literata-greek-wght-normal.woff2": {
+    "file": "assets/literata-greek-wght-normal-CO1l-giJ.woff2",
+    "src": "node_modules/@fontsource-variable/literata/files/literata-greek-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/literata/files/literata-latin-ext-wght-normal.woff2": {
+    "file": "assets/literata-latin-ext-wght-normal-BnEbWgdZ.woff2",
+    "src": "node_modules/@fontsource-variable/literata/files/literata-latin-ext-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/literata/files/literata-latin-wght-normal.woff2": {
+    "file": "assets/literata-latin-wght-normal-DLxlUchJ.woff2",
+    "src": "node_modules/@fontsource-variable/literata/files/literata-latin-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/literata/files/literata-vietnamese-wght-normal.woff2": {
+    "file": "assets/literata-vietnamese-wght-normal-LcSrhZ7T.woff2",
+    "src": "node_modules/@fontsource-variable/literata/files/literata-vietnamese-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/nunito-sans/files/nunito-sans-cyrillic-ext-wght-normal.woff2": {
+    "file": "assets/nunito-sans-cyrillic-ext-wght-normal-7w74d1lj.woff2",
+    "src": "node_modules/@fontsource-variable/nunito-sans/files/nunito-sans-cyrillic-ext-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/nunito-sans/files/nunito-sans-cyrillic-wght-normal.woff2": {
+    "file": "assets/nunito-sans-cyrillic-wght-normal-B9hoeQUC.woff2",
+    "src": "node_modules/@fontsource-variable/nunito-sans/files/nunito-sans-cyrillic-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/nunito-sans/files/nunito-sans-latin-ext-wght-normal.woff2": {
+    "file": "assets/nunito-sans-latin-ext-wght-normal-DMEAsnHD.woff2",
+    "src": "node_modules/@fontsource-variable/nunito-sans/files/nunito-sans-latin-ext-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/nunito-sans/files/nunito-sans-latin-wght-normal.woff2": {
+    "file": "assets/nunito-sans-latin-wght-normal-BWQ3gi2K.woff2",
+    "src": "node_modules/@fontsource-variable/nunito-sans/files/nunito-sans-latin-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/nunito-sans/files/nunito-sans-vietnamese-wght-normal.woff2": {
+    "file": "assets/nunito-sans-vietnamese-wght-normal-BhFYcaJr.woff2",
+    "src": "node_modules/@fontsource-variable/nunito-sans/files/nunito-sans-vietnamese-wght-normal.woff2"
+  },
+  "resources/css/admin.css": {
+    "file": "assets/admin-BDUOfn4j.css",
+    "name": "admin",
+    "names": [
+      "admin.css"
+    ],
+    "src": "resources/css/admin.css",
+    "isEntry": true,
+    "assets": [
+      "assets/nunito-sans-cyrillic-ext-wght-normal-7w74d1lj.woff2",
+      "assets/nunito-sans-cyrillic-wght-normal-B9hoeQUC.woff2",
+      "assets/nunito-sans-vietnamese-wght-normal-BhFYcaJr.woff2",
+      "assets/nunito-sans-latin-ext-wght-normal-DMEAsnHD.woff2",
+      "assets/nunito-sans-latin-wght-normal-BWQ3gi2K.woff2",
+      "assets/literata-cyrillic-ext-wght-normal-CGKlZYBf.woff2",
+      "assets/literata-cyrillic-wght-normal-DLqwHbi6.woff2",
+      "assets/literata-greek-ext-wght-normal-e3e57Shi.woff2",
+      "assets/literata-greek-wght-normal-CO1l-giJ.woff2",
+      "assets/literata-vietnamese-wght-normal-LcSrhZ7T.woff2",
+      "assets/literata-latin-ext-wght-normal-BnEbWgdZ.woff2",
+      "assets/literata-latin-wght-normal-DLxlUchJ.woff2"
+    ]
+  },
+  "resources/js/admin.js": {
+    "file": "assets/admin-Bajnbx4n.js",
+    "name": "admin",
+    "src": "resources/js/admin.js",
+    "isEntry": true
+  }
+}

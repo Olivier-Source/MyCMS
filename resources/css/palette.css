@@ -1,0 +1,66 @@
+/*
+ * Site colours: each Tailwind colour (bg-primary, text-on-surface…) reads a
+ * --c-* CSS variable injected by the layout from the colours chosen in
+ * "Colours & style" (app/Cms/ThemePalette.php).
+ */
+@theme inline {
+    --color-primary: rgb(var(--c-primary));
+    --color-on-primary: rgb(var(--c-on-primary));
+    --color-primary-container: rgb(var(--c-primary-container));
+    --color-on-primary-container: rgb(var(--c-on-primary-container));
+    --color-primary-fixed: rgb(var(--c-primary-fixed));
+    --color-primary-fixed-dim: rgb(var(--c-primary-fixed-dim));
+    --color-on-primary-fixed: rgb(var(--c-on-primary-fixed));
+    --color-on-primary-fixed-variant: rgb(var(--c-on-primary-fixed-variant));
+
+    --color-secondary: rgb(var(--c-secondary));
+    --color-on-secondary: rgb(var(--c-on-secondary));
+    --color-secondary-container: rgb(var(--c-secondary-container));
+    --color-secondary-fixed: rgb(var(--c-secondary-fixed));
+    --color-on-secondary-container: rgb(var(--c-on-secondary-container));
+    --color-on-secondary-fixed: rgb(var(--c-on-secondary-fixed));
+    --color-on-secondary-fixed-variant: rgb(var(--c-on-secondary-fixed-variant));
+
+    --color-tertiary: rgb(var(--c-tertiary));
+    --color-on-tertiary: rgb(var(--c-on-tertiary));
+    --color-tertiary-container: rgb(var(--c-tertiary-container));
+    --color-tertiary-fixed: rgb(var(--c-tertiary-fixed));
+    --color-on-tertiary-fixed: rgb(var(--c-on-tertiary-fixed));
+    --color-on-tertiary-fixed-variant: rgb(var(--c-on-tertiary-fixed-variant));
+
+    --color-btn: rgb(var(--c-btn));
+    --color-on-btn: rgb(var(--c-on-btn));
+    --color-btn-hover: rgb(var(--c-btn-hover));
+
+    --color-surface: rgb(var(--c-surface));
+    --color-surface-container-lowest: rgb(var(--c-surface-container-lowest));
+    --color-surface-container-low: rgb(var(--c-surface-container-low));
+    --color-surface-container: rgb(var(--c-surface-container));
+    --color-surface-container-high: rgb(var(--c-surface-container-high));
+    --color-surface-container-highest: rgb(var(--c-surface-container-highest));
+    --color-surface-variant: rgb(var(--c-surface-variant));
+    --color-on-surface: rgb(var(--c-on-surface));
+    --color-on-surface-variant: rgb(var(--c-on-surface-variant));
+    --color-outline-variant: rgb(var(--c-outline-variant));
+
+    --color-error: rgb(var(--c-error));
+    --color-on-error: rgb(var(--c-on-error));
+    --color-error-container: rgb(var(--c-error-container));
+    --color-on-error-container: rgb(var(--c-on-error-container));
+}
+
+@theme {
+    --font-headline: 'Literata Variable', Georgia, serif;
+    --font-body: 'Nunito Sans Variable', ui-sans-serif, system-ui, sans-serif;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
+}
+
+/* SVG icons: size = font size, like an icon font */
+.icon {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    flex-shrink: 0;
+    vertical-align: -0.125em;
+}

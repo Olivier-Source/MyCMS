@@ -1,0 +1,85 @@
+/* Administration */
+@import 'tailwindcss';
+@import '@fontsource-variable/nunito-sans/wght.css';
+@import '@fontsource-variable/literata/wght.css';
+@import 'trix/dist/trix.css';
+/* Site colours, for the previews (Appearance) */
+@import './palette.css';
+
+@source '../views/admin';
+@source '../views/components';
+@source '../js';
+@source '../../app/Cms';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+
+@theme {
+    --font-sans: 'Nunito Sans Variable', ui-sans-serif, system-ui, sans-serif;
+}
+
+@utility ck-btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition
+           focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-600/25 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+@layer base {
+    [x-cloak] { display: none !important; }
+    body { -webkit-font-smoothing: antialiased; }
+    /* Default values for the previews outside the public site */
+    :root {
+        --c-primary: 74 124 89; --c-on-primary: 255 255 255; --c-btn: 74 124 89; --c-on-btn: 255 255 255;
+        --c-surface: 250 246 240; --c-on-surface: 46 50 48; --c-on-surface-variant: 74 78 74;
+    }
+}
+
+@layer components {
+    .ck-card { @apply bg-white rounded-2xl border border-stone-200/80 shadow-sm; }
+    .ck-input {
+        @apply w-full rounded-xl border border-stone-300 bg-white px-3.5 py-2.5 text-[15px] text-stone-900 placeholder:text-stone-400
+               focus:border-emerald-600 focus:outline-none focus:ring-4 focus:ring-emerald-600/15 transition;
+    }
+    .ck-label { @apply block text-sm font-semibold text-stone-800 mb-1.5; }
+    .ck-help { @apply mt-1.5 text-[13px] leading-snug text-stone-500; }
+    .ck-error { @apply mt-1.5 text-[13px] font-semibold text-red-700; }
+    .ck-btn-primary { @apply ck-btn bg-emerald-700 text-white hover:bg-emerald-800 shadow-sm; }
+    .ck-btn-secondary { @apply ck-btn bg-white text-stone-800 border border-stone-300 hover:bg-stone-50; }
+    .ck-btn-ghost { @apply ck-btn text-stone-600 hover:bg-stone-100 hover:text-stone-900; }
+    .ck-btn-danger { @apply ck-btn bg-white text-red-700 border border-red-200 hover:bg-red-50; }
+    .ck-icon-btn {
+        @apply inline-flex h-9 w-9 items-center justify-center rounded-lg text-stone-500 transition hover:bg-stone-100 hover:text-stone-900
+               focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-600/25 disabled:opacity-30 disabled:hover:bg-transparent;
+    }
+    .ck-badge { @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold; }
+    .ck-nav-link { @apply flex items-center gap-3 rounded-xl px-3 py-2.5 text-[15px] font-medium text-stone-600 transition hover:bg-stone-100 hover:text-stone-900; }
+    .ck-nav-link.is-active { @apply bg-emerald-50 text-emerald-800 font-semibold; }
+    .ck-toggle {
+        @apply relative inline-flex h-6 w-11 shrink-0 cursor-pointer appearance-none rounded-full bg-stone-300 transition
+               checked:bg-emerald-600 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-600/25;
+    }
+    .ck-toggle::after {
+        content: '';
+        @apply absolute left-0.5 top-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform;
+    }
+    .ck-toggle:checked::after { transform: translateX(1.25rem); }
+}
+
+/* SVG icons */
+.icon { width: 1em; height: 1em; display: inline-block; flex-shrink: 0; }
+
+/* Text editor (Trix) */
+trix-toolbar .trix-button-group--file-tools { display: none; }
+trix-toolbar .trix-button-row { flex-wrap: wrap; }
+trix-toolbar .trix-button-group { margin-bottom: 4px; border-color: #d6d3d1; border-radius: 10px; overflow: hidden; }
+trix-editor {
+    min-height: 8rem;
+    border: 1px solid #d6d3d1 !important;
+    border-radius: 12px !important;
+    padding: 0.75rem 0.9rem !important;
+    background: #fff;
+    font-size: 15px;
+    line-height: 1.6;
+}
+trix-editor:focus { outline: none; border-color: #059669 !important; box-shadow: 0 0 0 4px rgb(5 150 105 / 15%); }
+trix-editor h1 { font-size: 1.15rem; font-weight: 700; }
+trix-editor ul { list-style: disc; padding-left: 1.2rem; }
+trix-editor ol { list-style: decimal; padding-left: 1.2rem; }
+trix-editor a { color: #047857; text-decoration: underline; }

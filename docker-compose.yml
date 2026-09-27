@@ -1,0 +1,97 @@
+# MyCMS with Docker Compose (Coolify, Portainer, a VPS…)
+#
+#   cp .env.docker.example .env.docker   (then fill it in)
+#   docker compose --env-file .env.docker up -d
+#
+# The site answers on port 8080 of the "app" service: put a reverse proxy
+# (Traefik, Caddy, nginx…) with HTTPS in front of it.
+
+x-app-environment: &app-environment
+  APP_NAME: ${MYCMS_SITE_NAME:-MyCMS}
+  APP_ENV: production
+  APP_DEBUG: "false"
+  APP_KEY: ${APP_KEY:?APP_KEY is missing (php artisan key:generate --show)}
+  APP_URL: ${APP_URL:?APP_URL is missing (e.g. https://example.com)}
+  APP_LOCALE: ${MYCMS_LOCALE:-en}
+  APP_FALLBACK_LOCALE: en
+  ADMIN_DOMAIN: ${ADMIN_DOMAIN:-}
+  LOG_CHANNEL: stderr
+  LOG_LEVEL: warning
+  DB_CONNECTION: mariadb
+  DB_HOST: db
+  DB_PORT: "3306"
+  DB_DATABASE: ${DB_DATABASE:-mycms}
+  DB_USERNAME: ${DB_USERNAME:-mycms}
+  DB_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD is missing}
+  SESSION_DRIVER: database
+  SESSION_ENCRYPT: "true"
+  SESSION_SECURE_COOKIE: "true"
+  SESSION_SAME_SITE: lax
+  CACHE_STORE: database
+  QUEUE_CONNECTION: sync
+  MAIL_MAILER: ${MAIL_MAILER:-smtp}
+  MAIL_HOST: ${MAIL_HOST:-}
+  MAIL_PORT: ${MAIL_PORT:-587}
+  MAIL_USERNAME: ${MAIL_USERNAME:-}
+  MAIL_PASSWORD: ${MAIL_PASSWORD:-}
+  MAIL_FROM_ADDRESS: ${MAIL_FROM_ADDRESS:-no-reply@example.com}
+  MAIL_FROM_NAME: ${MYCMS_SITE_NAME:-MyCMS}
+
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    environment:
+      <<: *app-environment
+      AUTORUN_ENABLED: "true"
+      # First start only: site name, language and first administrator
+      MYCMS_SITE_NAME: ${MYCMS_SITE_NAME:-My Website}
+      MYCMS_LOCALE: ${MYCMS_LOCALE:-en}
+      MYCMS_ADMIN_EMAIL: ${MYCMS_ADMIN_EMAIL:-}
+      MYCMS_ADMIN_PASSWORD: ${MYCMS_ADMIN_PASSWORD:-}
+    ports:
+      - "${MYCMS_PORT:-8080}:8080"
+    volumes:
+      # Pictures, installed themes and language packs
+      - storage:/var/www/html/storage
+    depends_on:
+      db:
+        condition: service_healthy
+
+  # Scheduled tasks: GDPR purge of the messages, expired links
+  scheduler:
+    build: .
+    restart: unless-stopped
+    command: ["php", "/var/www/html/artisan", "schedule:work"]
+    stop_signal: SIGTERM
+    healthcheck:
+      test: ["CMD", "healthcheck-schedule"]
+      start_period: 10s
+    environment:
+      <<: *app-environment
+      AUTORUN_ENABLED: "false"
+    volumes:
+      - storage:/var/www/html/storage
+    depends_on:
+      app:
+        condition: service_started
+
+  db:
+    image: mariadb:11
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: ${DB_DATABASE:-mycms}
+      MARIADB_USER: ${DB_USERNAME:-mycms}
+      MARIADB_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD is missing}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:?DB_ROOT_PASSWORD is missing}
+    volumes:
+      - db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  storage:
+  db:

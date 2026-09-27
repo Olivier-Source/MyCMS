@@ -1,0 +1,36 @@
+{
+    "name": "MyCMS Default",
+    "slug": "default",
+    "version": "1.0.0",
+    "description": "A clean, warm and accessible theme that suits every kind of site: freelancers, small businesses, associations, portfolios…",
+    "author": "MyCMS",
+    "license": "MIT",
+    "screenshot": "screenshot.svg",
+    "assets": {
+        "css": ["assets/theme.css"],
+        "js": ["assets/theme.js"]
+    },
+    "default_palette": "ocean",
+    "options": [
+        {
+            "name": "heading_font",
+            "label": "Heading font",
+            "type": "select",
+            "options": { "serif": "Elegant (serif)", "sans": "Modern (sans-serif)" },
+            "default": "serif"
+        },
+        {
+            "name": "corners",
+            "label": "Corners",
+            "type": "select",
+            "options": { "rounded": "Rounded", "square": "Square" },
+            "default": "rounded"
+        },
+        {
+            "name": "sticky_header",
+            "label": "Keep the menu visible when scrolling",
+            "type": "toggle",
+            "default": true
+        }
+    ]
+}
